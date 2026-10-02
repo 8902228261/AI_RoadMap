@@ -1,0 +1,22 @@
+Install the Python extension from Microsoft (it includes the debugger).
+Ctrl+Shift+P → Python: Select Interpreter → pick
+D:\Study\AIRA2\.venv\Scripts\python.exe
+(version should be 3.13, not 3.14).
+Stop the C# AIRA API if it is still using port 5080. Keep Docker/Postgres running.
+Start debugging
+
+Open aira2/app.py and click left of line 120 (def api_investigate) so a red dot appears.
+Open aira2/agent_graph.py and put dots on retrieve_node, plan_node, act_node, and conclude_node.
+Open Run and Debug (Ctrl+Shift+D).
+At the top, choose AIRA2 API.
+Press F5 (or the green play button).
+The terminal should show uvicorn listening on http://127.0.0.1:5080.
+
+Hit the breakpoints
+
+In the browser open http://127.0.0.1:5080
+Click Seed INC-001, then Start investigation
+VS Code stops on api_investigate
+Use F10 to step over a line, F11 to step into a function, and the Variables panel to inspect incident and state.
+
+If F5 says it cannot find the debugger, install the Python extension and select the .venv interpreter again.
